@@ -1,5 +1,8 @@
 import java.awt.Color;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.net.URL;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
@@ -420,13 +423,16 @@ public class Picture
 		   }
 	   }
 	   
+	   
 	   return result;
    }
    
-   public void printAscii(char[][] ascii){
+   public void printAscii(char[][] ascii) throws FileNotFoundException{
 	   int width = image.getWidth();
 	   int height = image.getHeight();
 	   char letter;
+	   
+	   //System.setOut(new PrintStream(new FileOutputStream("out.txt")));
 	   
 	   for (int row = 0; row < height; row++) {
 		   for(int col = 0; col < width; col++) {
